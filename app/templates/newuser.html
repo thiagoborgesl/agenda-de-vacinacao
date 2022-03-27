@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+{% block content %}
+<h5 class="text-light text-center mt-3">NOVO USUARIO</h5>
+<form action="" method="POST">
+    {{ form.csrf_token }}
+    <div class="mb-3">
+        <label for="username" class="form-label text-light">Nome</label>
+        {{ form.username(class="form-control")}}
+    </div>
+    <div class="mb-3">
+        <label for="gender" class="form-label text-light">Sexo</label>
+        {{ form.gender(class="form-select")}}
+    </div>
+    <div class="mb-2 mt-4">
+        <label for="birthdate" class="form-label text-light mb-3">Data de Nascimento</label>
+        {{ form.birthdate()}}
+    </div>
+    <div class="row">
+        <div class="mb-3 col-8">
+            <label for="street" class="form-label text-light">Logradouro</label>
+            {{ form.street(class="form-control")}}
+        </div>
+        <div class="mb-3 col-4">
+            <label for="exampleInputEmail1" class="form-label text-light">Número</label>
+            {{ form.number(class="form-control") }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="mb-3 col-6">
+            <label for="exampleInputEmail1" class="form-label text-light">Setor</label>
+            {{ form.district(class="form-control") }}
+        </div>
+        <div class="mb-3 col-4">
+            <label for="exampleInputEmail1" class="form-label text-light">Cidade</label>
+            {{ form.city(class="form-control") }}
+        </div>
+        <div class="mb-3 col-2">
+            <label for="state" class="form-label text-light">UF</label>
+            {{ form.state(class="form-control") }}
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="allergies" class="form-label text-light">Alergias</label>
+        {{ form.allergies(class="form-select") }}
+    </div>
+    <div class="row">
+        <div class="col-10">
+            {{ form.submit(class="btn btn-primary") }}
+        </div>
+            <a href="/" class="btn btn-light col-1">Voltar</a>
+    </div>
+  </form>
+
+{% endblock %}

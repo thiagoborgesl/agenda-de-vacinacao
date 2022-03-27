@@ -1,0 +1,25 @@
+instalar python e pip
+sudo apt-get install python3
+sudo apt-get install python3-pip
+
+instalar dependencias
+pip install -r requirements.txt
+
+instalar banco de dados e subir o banco
+sudo apt-get install postgresql postgresql-contrib
+executar o comando que aparecer no final da instalaçao para iniciar o postgres
+
+configurar a senha do role postgres
+sudo -i -u postgres psql
+\password postgres
+#abrirá um campo para definir senha, colocar 123456
+
+criar o banco
+cd AgendaDeVacinacao
+flask db init
+flask db migrate
+flask db upgrade
+
+rodar o app
+cd AgendaDeVacinacao
+python3 run.py

@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% with massages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+    {% for category, message in messages %}
+        <li class="alert alert-{{ category }}"></li>
+    {% endfor %}
+{% endif %}
+{% endwith %}
+{% block content %}
+<h5 class="text-light text-center mt-3">NOVA ALERGIA</h5>
+<form action="" method="POST">
+    {{ form.csrf_token }}
+    <div class="mb-3">
+        <label for="allergy" class="form-label text-light">Alergia</label>
+        {{ form.allergy(class="form-control") }}
+    </div> 
+    <div class="row">
+        <div class="col-10">
+            {{ form.submit(class="btn btn-primary") }}
+        </div>
+            <a href="/" class="btn btn-light col-1">Voltar</a>
+    </div>
+</form>
+{% endblock %}

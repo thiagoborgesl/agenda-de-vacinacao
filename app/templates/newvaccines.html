@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block content %}
+<h5 class="text-light text-center mt-3">NOVA VACINA</h5>
+<form action="" method="POST">
+    {{ form.csrf_token }}
+    <div class="mb-3">
+        <label for="title" class="form-label text-light">Nome da Vacina</label>
+        {{ form.title(class="form-control") }}
+    </div>
+
+    <div class="mb-3">
+        <label for="description" class="form-label text-light">Descrição</label>
+            {{ form.description(class="form-control") }}
+    </div>
+    <div class="row">
+        <div class="mb-3 col-4">
+            <label for="description" class="form-label text-light">Doses</label>
+                {{ form.doses(class="form-control") }}
+        </div>
+        <div class="mb-3 col-4">
+            <label for="description" class="form-label text-light">Periodicidade</label>
+                {{ form.frequency(class="form-control") }}
+        </div>
+        <div class="mb-3 col-4">
+            <label for="description" class="form-label text-light">Intervalo</label>
+                {{ form.gap(class="form-control") }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-10">
+            {{ form.submit(class="btn btn-primary") }}
+        </div>
+            <a href="/" class="btn btn-light col-1">Voltar</a>
+    </div>
+</form>
+{% endblock %}
