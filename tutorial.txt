@@ -7,7 +7,7 @@ pip install -r requirements.txt
 
 instalar banco de dados e subir o banco
 sudo apt-get install postgresql postgresql-contrib
-executar o comando que aparecer no final da instalaçao para iniciar o postgres
+executar o comando que aparecer no final da instalaçao para iniciar o postgres(sudo service postegresql start )
 
 configurar a senha do role postgres
 sudo -i -u postgres psql

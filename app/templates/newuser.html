@@ -21,17 +21,17 @@
             {{ form.street(class="form-control")}}
         </div>
         <div class="mb-3 col-4">
-            <label for="exampleInputEmail1" class="form-label text-light">Número</label>
+            <label for="number" class="form-label text-light">Número</label>
             {{ form.number(class="form-control") }}
         </div>
     </div>
     <div class="row">
         <div class="mb-3 col-6">
-            <label for="exampleInputEmail1" class="form-label text-light">Setor</label>
+            <label for="district" class="form-label text-light">Setor</label>
             {{ form.district(class="form-control") }}
         </div>
         <div class="mb-3 col-4">
-            <label for="exampleInputEmail1" class="form-label text-light">Cidade</label>
+            <label for="city" class="form-label text-light">Cidade</label>
             {{ form.city(class="form-control") }}
         </div>
         <div class="mb-3 col-2">
@@ -40,8 +40,16 @@
         </div>
     </div>
     <div class="mb-3">
-        <label for="allergies" class="form-label text-light">Alergias</label>
-        {{ form.allergies(class="form-select") }}
+          <div class="dropdown">
+            <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              Alergias
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                {% for allergyt in listofallergies %}
+                    <li><a class="dropdown-item btn" value="{{allergyt.id}}">{{allergyt.nome}}</a></li>
+                {% endfor %}
+            </ul>
+          </div>
     </div>
     <div class="row">
         <div class="col-10">

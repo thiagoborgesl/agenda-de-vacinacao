@@ -25,6 +25,12 @@ class Agenda(db.Model):
     observacoes = db.Column(db.String(20))
 
 
+alergiasUsuario = db.Table('alergiasUsuario',
+                        db.Column('usuario_id', db.Integer, db.ForeignKey('usuarios.id'), primary_key=True), 
+                        db.Column('alergia_id', db.Integer, db.ForeignKey('alergias.id'), primary_key=True)
+                        )
+
+
 class Usuario(db.Model):
     __tablename__ = "usuarios"
     id = db.Column(db.Integer, primary_key=True)
@@ -36,9 +42,12 @@ class Usuario(db.Model):
     setor = db.Column(db.String(40))
     cidade = db.Column(db.String(40))
     uf = db.Column(db.String(2))
+    allergies = db.relationship('Alergia', secondary=alergiasUsuario, lazy='subquery',
+                               backref=db.backref('usuarios', lazy=True))
 
 
 class Alergia(db.Model):
     __tablename__ = "alergias"
     id = db.Column(db.Integer, primary_key=True)
     nome = db.Column(db.String(40))
+

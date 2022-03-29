@@ -21,8 +21,8 @@ def newVaccines():
 def newUsers():
     allergies = Alergia.query.all()
     print(allergies)
-    form = UserForm(allergies=allergies)
-    return render_template('newuser.html', title='Cadastro Usuarios', form=form)
+    form = UserForm()
+    return render_template('newuser.html', title='Cadastro Usuarios', form=form, listofallergies=allergies)
 
 @app.route('/cadastro/agendas')
 def newSchedules():
